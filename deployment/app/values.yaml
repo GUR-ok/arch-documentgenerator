@@ -1,0 +1,32 @@
+config:
+  name: arch-documentgenerator-configmap
+  port: 8000
+  ddl: validate
+secret:
+  name: arch-documentgenerator-secret
+deployment:
+  app:
+    image: gurok/arch_documentgenerator
+    port: 8000
+    replicas: 2
+  db:
+    image: postgres:latest
+    port: 5432
+    replicas: 1
+service:
+  app:
+    name: arch-documentgenerator-service
+    type: ClusterIP
+    protocol: TCP
+    port: 9000
+  db:
+    name: postgresql-documentgenerator-service
+    host: "postgresql-documentgenerator-service"
+    type: ClusterIP
+    port: 5432
+    sport: "5432"
+    dbname: arch_documentgenerator_db
+    dbschema: public
+ingress:
+  name: otus-documentgenerator-ingress
+  host: arch.homework
