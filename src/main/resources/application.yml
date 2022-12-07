@@ -32,3 +32,10 @@ logging:
     root: INFO
     org.springframework: INFO
     ru.gur.arch: INFO
+
+app:
+  minio:
+    accessKey: ${MINIO_ACCESS_KEY:minio_access_key}
+    secretKey: ${MINIO_SECRET_KEY:minio_secret_key}
+    url: ${MINIO_URL:http://arch.homework:30002}
+    bucketName: agreementbucket
