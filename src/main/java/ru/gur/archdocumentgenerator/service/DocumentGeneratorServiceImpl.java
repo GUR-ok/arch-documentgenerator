@@ -53,4 +53,11 @@ public class DocumentGeneratorServiceImpl implements DocumentGeneratorService {
     public String getUrl(String name) {
         return minioRepository.getUrl(name);
     }
+
+    @Override
+    public String delete(String name) {
+        minioRepository.remove(name);
+
+        return name;
+    }
 }

@@ -8,4 +8,6 @@ public interface DocumentGeneratorService {
     String generate(CreateAgreementDto createAgreementDto) throws JRException;
 
     String getUrl(String name);
+
+    String delete(String name);
 }
